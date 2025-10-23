@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
 import { Kanit } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
-const kanit = Kanit({ 
+const kanit = Kanit({
+  weight: ['300', '400', '500', '600', '700'],
   subsets: ["latin", "thai"],
-  weight: ["200", "300", "400", "500", "600", "700", "800"]
+  variable: "--font-kanit",
 });
 
 export const metadata: Metadata = {
-  title: "Prime Wrap Car - ผู้เชี่ยวชาญด้านสีแรปรถยนต์",
-  description: "ขายปลีก-ส่งสีแรปรถยนต์คุณภาพสูง บริการครบวงจร",
+  title: "Prime Wrap Car - ขายสี Wrap รถยนต์คุณภาพสูง",
+  description: "ร้านขายสี Wrap รถยนต์คุณภาพสูง พร้อมบริการครบวงจร",
 };
 
 export default function RootLayout({
@@ -19,8 +22,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="th">
-      <body className={`${kanit.className} antialiased`}>
-        {children}
+      <body className={`${kanit.variable} font-kanit antialiased`}>
+        <Navbar />
+        <main className="min-h-screen">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

@@ -4,21 +4,17 @@ import { getAuth } from 'firebase/auth';
 import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
-  // Replace with your Firebase config
-  apiKey: "your-api-key",
-  authDomain: "your-project.firebaseapp.com",
-  projectId: "your-project-id",
-  storageBucket: "your-project.appspot.com",
-  messagingSenderId: "123456789",
-  appId: "your-app-id"
+  apiKey: "AIzaSyCtP8DGbco6a642gfc27YqeW9REEhAnIZs",
+  authDomain: "primewrapcar-e8db2.firebaseapp.com",
+  projectId: "primewrapcar-e8db2",
+  storageBucket: "primewrapcar-e8db2.firebasestorage.app",
+  messagingSenderId: "123384128809",
+  appId: "1:123384128809:web:604c63b389c3e88493c338",
+  measurementId: "G-RT719LYSD5"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
-// Initialize Firebase services
 export const db = getFirestore(app);
 export const auth = getAuth(app);
 export const storage = getStorage(app);
-
 export default app;

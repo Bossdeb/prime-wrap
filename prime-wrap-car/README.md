@@ -1,26 +1,30 @@
-# Prime Wrap Car - เว็บไซต์ขายสีแรปรถยนต์
+# Prime Wrap Car - เว็บไซต์ขายสี Wrap รถยนต์
 
-เว็บไซต์สำหรับขายปลีก-ส่งสีแรปรถยนต์ "Prime Wrap Car" ที่สร้างด้วย Next.js, Firebase และ Tailwind CSS
+เว็บแอปพลิเคชัน Next.js + Firebase สำหรับขายสี Wrap รถยนต์ พร้อมระบบจัดการสินค้า บทความ และ Admin
 
-## 🚀 เทคโนโลยีที่ใช้
+## คุณสมบัติ
 
-- **Next.js 15** - React Framework
-- **TypeScript** - Type Safety
-- **Tailwind CSS** - Styling
-- **Firebase** - Database & Authentication
-- **Responsive Design** - รองรับทุกอุปกรณ์
+- 🎨 หน้าแรกแสดงสินค้าแนะนำ
+- 📦 หน้าสินค้าพร้อมระบบกรองตามหมวดหมู่
+- 📝 ระบบบทความ
+- 🖼️ หน้าแสดงผลงาน (Showcase)
+- 👨‍💼 ระบบ Admin สำหรับจัดการเนื้อหา
+- 🔗 ระบบจัดการรูปภาพผ่าน URL
+- 🖼️ Image Gallery และ Preview
+- 💬 ปุ่มสั่งซื้อผ่าน LINE Official
+- 📱 Responsive Design
+- 🔥 Firebase Firestore Database
 
-## 🎨 ฟีเจอร์หลัก
+## เทคโนโลยีที่ใช้
 
-- **หน้าแรก** - Hero section, แสดงสินค้าแนะนำ, บริการ
-- **หน้าสินค้า** - แสดงสินค้าทั้งหมดพร้อมระบบกรอง
-- **ระบบนำทาง** - เมนูที่ใช้งานง่าย รองรับมือถือ
-- **ธีมสีขาว-น้ำเงิน** - ดีไซน์สวยงาม เป็นมืออาชีพ
-- **Responsive** - ใช้งานได้ทุกอุปกรณ์
+- **Frontend**: Next.js 14, TypeScript, Tailwind CSS
+- **Database**: Firebase Firestore
+- **Font**: Kanit (รองรับภาษาไทย)
+- **Styling**: Tailwind CSS (สีธีม: ขาว-น้ำเงิน)
 
-## 📦 การติดตั้ง
+## การติดตั้ง
 
-1. Clone โปรเจค
+1. Clone repository
 ```bash
 git clone <repository-url>
 cd prime-wrap-car
@@ -32,74 +36,114 @@ npm install
 ```
 
 3. ตั้งค่า Firebase
-- สร้างโปรเจค Firebase ใหม่
-- เปิดใช้งาน Firestore Database
-- คัดลอก config ไปใส่ใน `src/lib/firebase.ts`
+   - สร้างโปรเจกต์ใน [Firebase Console](https://console.firebase.google.com)
+   - เปิดใช้งาน Firestore Database
+   - คัดลอกไฟล์ `.env.local.example` เป็น `.env.local`
+   - ใส่ Firebase configuration ในไฟล์ `.env.local`
 
-4. รันเว็บไซต์
+4. รันโปรเจกต์
 ```bash
 npm run dev
 ```
 
-เปิดเบราว์เซอร์ไปที่ [http://localhost:3000](http://localhost:3000)
+## ไฟล์ Environment Variables (.env.local)
 
-## 🏗️ โครงสร้างโปรเจค
+```env
+# Firebase Configuration
+NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key_here
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
 
-```
-prime-wrap-car/
-├── src/
-│   ├── app/
-│   │   ├── layout.tsx          # Layout หลัก
-│   │   ├── page.tsx            # หน้าแรก
-│   │   ├── products/
-│   │   │   └── page.tsx        # หน้าสินค้า
-│   │   └── globals.css         # CSS หลัก
-│   ├── components/
-│   │   ├── Header.tsx          # เมนูนำทาง
-│   │   ├── Hero.tsx            # Hero section
-│   │   ├── ProductShowcase.tsx # แสดงสินค้าแนะนำ
-│   │   ├── Services.tsx        # บริการ
-│   │   └── Footer.tsx          # Footer
-│   └── lib/
-│       └── firebase.ts         # Firebase config
+# LINE Official Account
+NEXT_PUBLIC_LINE_OFFICIAL_ID=@primewrapcar
 ```
 
-## 🎯 การพัฒนาต่อ
+## การใช้งาน Admin
 
-### เพิ่มหน้าใหม่
-1. สร้างไฟล์ใน `src/app/[page-name]/page.tsx`
-2. เพิ่มลิงก์ในเมนู (`Header.tsx`)
+1. เข้าสู่ระบบ Admin ที่ `/admin`
+   - Email: `admin@primewrapcar.com`
+   - Password: `admin123`
 
-### เพิ่มคอมโพเนนต์ใหม่
-1. สร้างไฟล์ใน `src/components/`
-2. Import และใช้งานในหน้าที่ต้องการ
+2. เพิ่มข้อมูลตัวอย่าง:
+   - ไปที่หน้า "ข้อมูลตัวอย่าง" ใน Admin
+   - คลิก "เพิ่มทั้งหมด" เพื่อเพิ่มสินค้าและบทความตัวอย่าง
 
-### ตั้งค่า Firebase
-1. แก้ไข `src/lib/firebase.ts`
-2. เพิ่ม Firebase config ของคุณ
-3. เปิดใช้งานบริการที่ต้องการ
+3. จัดการเนื้อหา:
+   - จัดการสินค้า: เพิ่ม แก้ไข ลบสินค้า (ใส่ URL รูปภาพได้หลายรูป)
+   - จัดการบทความ: เขียน แก้ไข เผยแพร่บทความ (ใส่ URL รูปปก)
+   - จัดการผลงาน: เพิ่ม แก้ไข ลบผลงาน (ใส่ URL รูปก่อน/หลัง)
 
-## 📱 หน้าที่มีอยู่
+4. แหล่งรูปภาพแนะนำ:
+   - Google Drive (แชร์เป็น Public)
+   - Imgur
+   - Unsplash
+   - หรือเว็บไซต์อื่นๆ ที่มี direct image URL
 
-- **/** - หน้าแรก
-- **/products** - หน้าสินค้าทั้งหมด
-- **/services** - บริการ (ยังไม่ได้สร้าง)
-- **/gallery** - ผลงาน (ยังไม่ได้สร้าง)
-- **/contact** - ติดต่อ (ยังไม่ได้สร้าง)
+## โครงสร้างโปรเจกต์
 
-## 🎨 การปรับแต่งสี
+```
+src/
+├── app/                    # Next.js App Router
+│   ├── admin/             # หน้า Admin
+│   ├── articles/          # หน้าบทความ
+│   ├── products/          # หน้าสินค้า
+│   └── showcase/          # หน้าผลงาน
+├── components/            # React Components
+├── hooks/                 # Custom Hooks สำหรับ Firebase
+├── lib/                   # Firebase config และ utilities
+└── types/                 # TypeScript type definitions
+```
 
-แก้ไขสีในไฟล์ `src/app/globals.css`:
-- สีหลัก: `bg-blue-600`
-- สีรอง: `bg-gray-50`
-- สีข้อความ: `text-gray-900`
+## Firebase Security Rules
 
-## 📞 การติดต่อ
+```javascript
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // อนุญาตให้อ่านข้อมูลสินค้าและบทความที่เผยแพร่แล้ว
+    match /products/{document} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    match /articles/{document} {
+      allow read: if resource.data.published == true;
+      allow write: if request.auth != null;
+    }
+    
+    match /showcase/{document} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+  }
+}
+```
 
-หากต้องการความช่วยเหลือหรือมีคำถาม สามารถติดต่อได้ที่:
-- อีเมล: info@primewrapcar.com
-- โทร: 02-xxx-xxxx
+## การปรับแต่ง
 
----
+### เปลี่ยนสีธีม
+แก้ไขไฟล์ `tailwind.config.ts` และ `src/app/globals.css`
 
-สร้างด้วย ❤️ โดย Prime Wrap Car Team
+### เปลี่ยน LINE Official ID
+แก้ไขในไฟล์ `.env.local` และอัพเดท URL ในไฟล์ต่างๆ
+
+### เพิ่มหมวดหมู่สินค้า
+แก้ไขใน Admin form และ filter components
+
+## การ Deploy
+
+1. Build โปรเจกต์
+```bash
+npm run build
+```
+
+2. Deploy ไปยัง Vercel, Netlify หรือ hosting อื่นๆ
+3. ตั้งค่า Environment Variables ใน hosting platform
+4. อัพเดท Firebase Security Rules สำหรับ production
+
+## License
+
+MIT License
